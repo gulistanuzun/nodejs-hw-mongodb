@@ -1,0 +1,31 @@
+{
+  "name": "nodejs-hw-mongodb",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000n\u0000o\u0000d\u0000e\u0000j\u0000s\u0000-\u0000h\u0000w\u0000-\u0000m\u0000o\u0000n\u0000g\u0000o\u0000d\u0000b\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gulistanuzun/nodejs-hw-mongodb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/gulistanuzun/nodejs-hw-mongodb/issues"
+  },
+  "homepage": "https://github.com/gulistanuzun/nodejs-hw-mongodb#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "eslint": "^10.4.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.6.3",
+    "nodemon": "^3.1.14",
+    "pino-http": "^11.0.0"
+  }
+}
