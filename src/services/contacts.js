@@ -1,4 +1,6 @@
 import { ContactModel } from '../db/models/Contact.js';
+import router from '../routers/contacts.js';
+
 export const getAllContacts = () => ContactModel.find();
 export const getContactById = (id) => ContactModel.findById(id);
 export const createContact = (data) => ContactModel.create(data);
