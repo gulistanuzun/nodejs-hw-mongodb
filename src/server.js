@@ -10,6 +10,7 @@ export function setupServer() {
   app.use(cors());
   app.use(pinohttp());
   app.use('/contacts', contactsRouter);
+  app.use(express.json())
   app.use(notFoundHandler);
   app.use(errorHandler);
   return app;
