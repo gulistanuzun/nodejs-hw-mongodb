@@ -9,8 +9,8 @@ export function setupServer() {
   const app = express();
   app.use(cors());
   app.use(pinohttp());
+  app.use(express.json());
   app.use('/contacts', contactsRouter);
-  app.use(express.json())
   app.use(notFoundHandler);
   app.use(errorHandler);
   return app;
