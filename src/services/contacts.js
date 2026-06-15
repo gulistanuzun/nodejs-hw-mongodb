@@ -1,14 +1,14 @@
 import { ContactModel } from '../db/models/Contact.js';
 
-export const getContactById = (id) => ContactModel.findById(id);
+export const getContactById = (id, userId) => ContactModel.findOne({ _id: id, userId });
 export const createContact = (data) => ContactModel.create(data);
-export const updateContact = (id, data) => ContactModel.findByIdAndUpdate(id, data, { new: true });
-export const deleteContact = (id) => ContactModel.findByIdAndDelete(id);
+export const updateContact = (id, userId, data) => ContactModel.findOneAndUpdate({ _id: id, userId }, data, { new: true });
+export const deleteContact = (id, userId) => ContactModel.findOneAndDelete({ _id: id, userId });
 
-export const getAllContacts = async ({ page, perPage,  sortBy, sortOrder, type, isFavourite }) => {
-  const filter = {};
-if (type) filter.contactType = type;
-if (isFavourite !== undefined) filter.isFavourite = isFavourite;
+export const getAllContacts = async ({ page, perPage, sortBy, sortOrder, type, isFavourite, userId }) => {
+  const filter = { userId };
+  if (type) filter.contactType = type;
+  if (isFavourite !== undefined) filter.isFavourite = isFavourite;
 
   const skip = (page - 1) * perPage;
   const totalItems = await ContactModel.countDocuments(filter);
