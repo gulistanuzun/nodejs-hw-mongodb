@@ -6,6 +6,10 @@ import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import authRouter from './routers/auth.js';
 import cookieParser from 'cookie-parser';
+import swaggerUi from 'swagger-ui-express';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 export function setupServer() {
   const app = express();
@@ -13,6 +17,10 @@ export function setupServer() {
   app.use(pinohttp());
   app.use(express.json());
   app.use(cookieParser());
+
+  const swaggerDoc = require('../docs/swagger.json');
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+
   app.use('/contacts', contactsRouter);
   app.use('/auth', authRouter);
   app.use(notFoundHandler);

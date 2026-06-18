@@ -1,0 +1,10 @@
+tags:
+  - Auth
+summary: Logout
+operationId: logoutUser
+description: Logs out the current user by invalidating the session.
+responses:
+  '204':
+    description: Successfully logged out
+  '401':
+    $ref: ../../../components/responses/401.yaml
